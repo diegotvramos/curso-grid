@@ -146,7 +146,9 @@ Fijense que nuestra cuadricula es de cuatro columnas por cinco rows a partir del
 Ahora tambien podriamos hacer una mescla de estos 3 elementos.
 
 vea que todo los elementos se reacomodan.
- ![espacios-vacios](/assets/)
+
+ ![espacios-vacios](/assets/span-espacios-vacios.JPG)
+ 
 ¿por que hay espacios sobrantes? por las areas que hemos definido, pues estos no caven entonces se van colocando hacia abajo 
 
 Cuando nosotros veamos el tema del flujo de la grir, ahi vamos a poder aprovechar los espacios sobrantes para que los ocupen celdas que si podrian caber ahi.
