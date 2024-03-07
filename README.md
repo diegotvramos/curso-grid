@@ -111,4 +111,93 @@ para que no haya desbordamiento tendria que hacer una resta del espaciado que le
 
 Hay otras maneras incluso de posecionar ya de manera muy particular cada uno de los elementos que tenemos en nuestra grid
 
-## 
+##  (3/17) Posicionamiento con Grid Lines
+
+Nosotros podemos establecer que un elemento se acomode en determinada coordenada de la cuadricula, existen diferentes formas de trabajarlo.
+
+¿Como acomodar elementos ocupando cierto número de celdas y tambien con la ayuda de las grid lines? _Grid-lines dividen las filas y las columnas_
+
+Imaginense que voy a posicionar el elmento número 10
+
+Hay 2 propiedades que se llaman:
+
+`grid-row-start: ; grid-row-end: ; grid-column-start: ; grid-column-end: ;`
+
+Estas propiedades me dicen de que linea a que linea yo quiero  que este elemento ocupe.
+
+Miren como item 6 se empujó, esto tiene que ver con el flujo de la grid, pero como yo explicitamente estoy posicionando mediante las lineas ese gri Item 10 por eso es que se recorieron. Ahora estas propiedades tiene un atajo. ` grid-row: 2/3;  grid-column: 3/4;`
+
+¿Como combino celdas? así:
+
+> `grid-row: 2/3;  grid-column: 3/4;`
+
+Otra manera de posicionar elmentos diciendole que ocupe varios espacios dependiendo de la posicion donde se encuentre y para eso vamos a utilizar una palabra Span ¡No, es html! 
+
+Yo quiero que el Item 12 ocupe 3 celdas en columna y en filas 2.
+
+Si yo a partir de la posicion donde se encuentra el elemento quisiera que barcara ciertos elementos enfilas y columnas podemos hacer lo siguiente.
+
+> ` grid-row: span 2; grid-column: span 3;`
+
+![Span](/assets/grid-span.JPG)
+
+Fijense que nuestra cuadricula es de cuatro columnas por cinco rows a partir del grid item 15  hasta el 19  ya están fuera de esa grid explicita que puse, pero si inspeccionamos codigo podemos ver que Grid es lo suficientemente inteligente para seguir generando esas cuadriculas de manera automatica con estó ya estamos acomodando los elementos de manera explicita **¿Por que Explicita?** por que ya lo estoy definiendo de tal linea a tal linea
+
+Ahora tambien podriamos hacer una mescla de estos 3 elementos.
+
+vea que todo los elementos se reacomodan.
+ ![espacios-vacios](/assets/)
+¿por que hay espacios sobrantes? por las areas que hemos definido, pues estos no caven entonces se van colocando hacia abajo 
+
+Cuando nosotros veamos el tema del flujo de la grir, ahi vamos a poder aprovechar los espacios sobrantes para que los ocupen celdas que si podrian caber ahi.
+
+Si ya empesaste a definir explicitamente tus elementos ya sea con lineas, a las lineas nosotros le podemos dar nombres particulares para que se llamen y apartir de ahi nombrar las lineas y posicionarlas, tambien podemos posicionar con nombres de areas,  particularmente, me gusta alinear mis elementos ya sea yo conociendo las lineas  o definiendo areas. pero todas estas formas que nos ofrece grid pues es que tu elijas con la que mejor te sientas cómodo.
+
+Para evitar este tipo de problemas que estábamos viendo que la grid del Item 10 desaparecia aparentemente de la reticula lo que te recomiendo es:
+
+> _Si tu ya empesaste a definir las posiciones de tus elementos que van a formar parte de tu areas de maquetacion yo te suguiero que explicitamente **tu vayas definiendo toda las areas explicitamente**  y no dejes que el flujo de la Grid posicione en base a su algoritmo lo elementos a los que tu explicitamente no le hayas dicho de que linea a que linea van_ 
+
+> _Es decir  si tu ya empesaste a linear 3 Items lo ideal es que aliniemos todos Explicitamente para que así los elementos se vayan posicionando en las areas que tu hayas definido por que luego muchas veces el dejar que algunos elementos se acomoden por el flujo de Grid nos va dar ese tipo de comportamientos extraños y hasta que tu no entiendas el funcionamiento del flujo de Grid te puede dar resultados horribles_
+
+## (4/17) Posicionamiento con nombres de Grid Lines
+
+Tenemos lineas y a esas lineas nosotros le podemos dar nombres _(Ponle nombres que tenga sentido)_ 
+
+Si tengo una reticula de 3*3 eso significa que voy a tener 4 linas de columna por 4 lineas de fila.
+
+quiero que el Item 3 ocupe todo el espacio de la última fila.
+
+```css
+  /*GRID LINE NAMES*/
+   /* Grid 3C x 3R reticula*/
+  .grid-line-names{
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: repeat(3, 1fr);
+    /*para nombrar las lineas*/
+    grid-template-columns: [linea-c1]1fr [linea-c2]1fr [linea-c3]1fr [linea-c4];
+    grid-template-rows: [linea-r1]1fr [linea-r2]1fr [linea-r3]1fr [linea-r4];
+  }
+
+  .grid-line-names .item:nth-child(3){
+    color: cyan;
+    grid-row: linea-r3 / linea-r4;
+    grid-column: linea-c1 / linea-c4;
+  }
+```
+
+![nombre-linea](/assets/nombre-linea.JPG)
+
+el item 8 y 9 ya se salieron de esa grid explicita ahora , ¿por que el tamaño del Grid Item 8 y Grid Item 9 es mas pequeño?  recuerda que el valor por defecto de las filas es el valor automático es decir el valor que la altura que tenga de contenido y recuerden que aquí lo que yo defini explicitamente que las primeras 3 filas van a tener una fraccion. 
+
+Si yo quisiera que todo esto fuera proporcional pues en lugar de ponerle el valor de fraccion `1fr`  vamos a decirle que tengan el valor `auto` y el valor automático está definido  por la altura de contenido que tengan y tambien recalcula para que toda las filas tengan el mismo espacio, _Recuerda, nuestro contenedor es del 80% del tamaño del viewport_ así 
+
+> `grid-template-rows: [linea-r1]auto [linea-r2]auto [linea-r3]auto [linea-r4];`
+
+![tamaño-proporcional](/assets/tamaño-proporcional.JPG)
+
+Vean que a cada fila le estan tocando 25%.
+
+Particularmente esto es complicarnos la existencia, por que  si tu ya sabes que al principio defines tus filas  y tus columnas y que si quieres posicionar los elementos con la tecnica de los `Grid-lines` creo que la tecnica de ponerle nombre a las lineas que nos ofrece grid  lo único que hace es generar mas texto complicarnos más la existencia a la hora ya de definir las maquetaciones,
+
+recuerda que tenemos un atajo que se llama grid area que nos permite definir los valores en una sola instruccion de grid row y de grid column, **Eso no funciona cuando estamos usando los grid-lines (nombres a lineas)**

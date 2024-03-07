@@ -85,7 +85,7 @@
   /*el repeat hay que ponerlo siempre y cuando las columnas o filas que van a tener en mismo tamaños sean CONTINUAS*/
   grid-template-columns: 20% repeat(2, 30%) 20%; /*Repiteme 2 del 30% .*/
   grid-template-rows: repeat(5, auto);/*Auto, para que se adapten en base a su contenido*/ 
-  /*espaciado, Pero estas 3 propiedades están depreciadas por eso sale con las letras tachadas*/
+  /*Espaciado, Pero estas 3 propiedades están depreciadas por eso sale con las letras tachadas*/
   grid-column-gap:2rem;
   grid-row-gap:1rem;
   grid-gap: 100px 0px; /*El primer valor es para row y el segundo para columnas*/
@@ -94,5 +94,49 @@
   row-gap:2rem;
   gap: 1vh 1vw; /*gap:row column;*/
   gap: 0; /*Sin ningun espaciado*/
-
 }
+
+.grid-explicit .item:nth-child(10){
+  color: cyan;
+  grid-row-start: 2; /*filas*/
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+ /*shorcut*/
+  grid-row: 2/3;
+  grid-column: 3/5;
+  /*grid-row-start / grid-row-end / grid-column-start / grid-column-end ;*/
+  grid-area: 2/3/3/5;
+}
+  /*Otra manera de posicionar es con :*/
+
+  .grid-explicit .item:nth-child(12){
+    color: cyan;
+    grid-row: span 2; /*a partir de la posicion donde te encuentras barcara dos filas (espacios)*/
+    grid-column: span 3;
+  }
+
+  /*Mescla*/
+  .grid-explicit .item:nth-child(15){
+    color: cyan;
+    grid-row: 1 / span 2; /* quiero que empieces en la fila 1 y apartir de ahi quiero que te despaces 3 filas*/
+    grid-column: 1 / span 2;
+  }
+
+  /*GRID LINE NAMES*/
+   /* Grid 3C x 3R reticula*/
+  .grid-line-names{
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: repeat(3, 1fr);
+    /*para nombrar las lineas*/
+    grid-template-columns: [linea-c1]1fr [linea-c2]1fr [linea-c3]1fr [linea-c4];
+    grid-template-rows: [linea-r1]1fr [linea-r2]1fr [linea-r3]1fr [linea-r4];
+    grid-template-rows: [linea-r1]auto [linea-r2]auto [linea-r3]auto [linea-r4];
+  }
+
+  .grid-line-names .item:nth-child(3){
+    color: cyan;
+    grid-row: linea-r3 / linea-r4;
+    grid-column: linea-c1 / linea-c4;
+  }
