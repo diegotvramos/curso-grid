@@ -140,3 +140,46 @@
     grid-row: linea-r3 / linea-r4;
     grid-column: linea-c1 / linea-c4;
   }
+
+  /*GRID AREAS*/
+
+
+  .grid-areas{
+    display: grid;
+    /*Grid de 2c x 3r*/
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 100px repeat(2, 1fr) 60px; /* la primera de 100px  las segundas 2 de una fraccion y la 3ra de 60px*/
+    /*les suguiero que cada fila lo manejen en distintas lineas de código */
+    grid-template-areas: 
+    "header header" /*no es el nombre de la clase, es el nombre original del elemento*/
+    "content sidebar"
+    "content ."/*Si yo quiero dejar una celda en blanco dejamos un (punto)*/
+    "footer footer";
+    /*no pasó absolutamente nada*/
+  }
+
+.header{
+  grid-area: header;/* lo pones sin comillas dobles.*/
+}
+
+.content{
+  grid-area: content;
+}
+
+
+.sidebar{
+  grid-area: sidebar;
+}
+
+.footer{
+  grid-area: footer;
+}
+
+
+
+
+
+
+
+
+

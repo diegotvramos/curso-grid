@@ -203,3 +203,88 @@ Vean que a cada fila le estan tocando 25%.
 Particularmente esto es complicarnos la existencia, por que  si tu ya sabes que al principio defines tus filas  y tus columnas y que si quieres posicionar los elementos con la tecnica de los `Grid-lines` creo que la tecnica de ponerle nombre a las lineas que nos ofrece grid  lo único que hace es generar mas texto complicarnos más la existencia a la hora ya de definir las maquetaciones,
 
 recuerda que tenemos un atajo que se llama grid area que nos permite definir los valores en una sola instruccion de grid row y de grid column, **Eso no funciona cuando estamos usando los grid-lines (nombres a lineas)**
+
+## (5/17) Posicionamiento con Grid Areas 
+
+Te voy a enseñar podemos asignar nombres de areas. vamos hacer el típico Holy Grail 3 Column Responsive Layout.
+
+![Holy_Grail_Layout](/assets/holy-grail-layout-diagram.png)
+
+una tipica maquetación de blod de principio de este siclo, nos permite dar nombres semánticos a las regiones es com figma o cualquier software de IU O UX, definiendo tu los wiframes los cuadritos los espación las regiones donde van a ir tus contenidos
+
+¿Cúantas columnas tengo?
+![figma](/assets/figma.JPG)
+
+tengo 2 columas
+
+¿Cúantas filas tengo?
+
+Tengo 3 filas.
+
+```css
+  .grid-areas{
+    display: grid;
+    /*Grid de 2c x 3r*/
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 100px repeat(2, 1fr) 60px; /* la primera de 100px  las segundas 2 de una fraccion y la 3ra de 60px*/
+    /*les suguiero que cada fila lo manejen en distintas lineas de código */
+    grid-template-areas: 
+    "header header" /*no es el nombre de la clase, es el nombre original del elemento*/
+    "content sidebar"
+    "content ."/*Si yo quiero dejar una celda en blanco dejamos un (punto)*/
+    "footer footer";
+    /*no pasó absolutamente nada*/
+  }
+
+.header{
+  grid-area: header;/* lo pones sin comillas dobles.*/
+}
+
+.content{
+  grid-area: content;
+}
+
+
+.sidebar{
+  grid-area: sidebar;
+}
+
+.footer{
+  grid-area: footer;
+}
+
+```
+
+cuando tengamos LAYOUTS mas complejos esta tecnica de las grid areas cuando temgamos que hacerlo responsivo va hacer que tengamos que escribir menos código.
+
+Cuando tus selectores de maquetación le des nombre de area ese nombre de area lo va tener durante todo el flujo de maquetacíon.
+
+Todas esas maquetaciones que tu hacias en photoshop ilustrator, etc. Vé como esos espacios de maquetacíon los puedes pasar muy facilmente con esta tecnica de las  ``Grid-areas`` esta es la solucion ganadora para definir las estructuras de tus maquetaciones.
+
+> Grid no reemplaza a Flexbox, lo complementa, grid fue pensado para diseñar la maquetacion,  la estructura de tus regiones flexbox te va servir para alinear los elementos ya internos de tus componentes  como: una ventana modal, elementos de una targeta como los elementos de un menú
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
