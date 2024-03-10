@@ -264,9 +264,77 @@ Todas esas maquetaciones que tu hacias en photoshop ilustrator, etc. Vé como es
 > Grid no reemplaza a Flexbox, lo complementa, grid fue pensado para diseñar la maquetacion,  la estructura de tus regiones flexbox te va servir para alinear los elementos ya internos de tus componentes  como: una ventana modal, elementos de una targeta como los elementos de un menú
 
 
+## (6/17) Grid Implícita. Grids de bloque y de línea
+
+En la clase enterior te mostraba como generar estructuras de maquetacíon(layout) zonas de contenido como wiframes.
+
+El navegador tiene la capacidad de que grid siga apilando elmentos en esa cuadricula aunque ya no esté definida pero que despues se vayan desbordando los elementos.
+
+  fijate, como todo se recorio a la izquierda, esto pasa porque display: grid; está ocupando
+  todo el ancho disponible y el container le está dando margenes automatico a los lados
+  y tiene el 80% de la pantalla entonces por eso se está centrando.
+
+  ![inline-grid](/assets/inline-grid.jpg)
+
+  en el momento que le pongo display: inline-grid;  está ocupando el 80 % no le podemos aplicar
+  margenes laterales y ese 20% sobrante lo está reflejando hacia la derecha.
+
+  Cuando tenemos un elemento con display: inline-grid;  si yo tengo 2 elementos contenedore
+  que trabajan con el modelo de grid y tienen suficiente espacio para estár en el mismo bloque
+  a lo ancho de contenido, pueden compartir espacio.
+
+  imaginate que vamos a poner 3 cuadriculas y que cada cuadricula va tener una galeria temá-
+  tica y queremos que compartan el mismo espacio en lugar de aplicar display: grid;
+  aplicamos display: inline-grid;
+
+  ![2 cuadriculas](/assets/inline.JPG)
+
+/*
+  puedo tener hasta 12 celdas y 12 items, pero recuerda, que en el navegador 
+  tengo 19 Items entonces del 13 al 19 ya no estaría dentro de esa cuadricula
+  implícita, sin envargo grid tiene la capacidad de seguir acomodando los elementos.
+  Cuando es maquetacion dinamica, el contenido va depender de una solicitud
+  que app haga a una API y a una base de datos entonces ahi la cuadricula se
+  va ir formando dinamicamente, este comportamiento lo tiene cualquier red
+  social, entonces ahi nos ayuda este tema de la grid implícita.
+  */
+
+
+¿Que pasa con los elementos posteriores?
+pues el valor por defecto que van a tener los elemenos en fila que se vayan
+despues de esa grid explicita, van a tomar el valor AUTO.
+A partir del elemento 13 se trataron de ajustar  al tamaño que tenia el contenedor padre
+y cuando ya no empiezan acaver van desbordando el contenedor del grid
+y tienen el valor AUTOMÁTICO(la altura de la fila va depender del contenido de los elementos)
+y si le pones un parrafo a un item, la altura de toda da fila se adapta
+a ese item
+Grid explicita:
+es cuando tu defines las filas y las columnas que estás esperando recibir
+apartir de ahi si por las necesidades de tu aplicacion como la cuadricula de instagram no vas a 
+saber cuantos elementos se van a ir acomodando en tu grid eso podria servir en una galeria
+de imágenes o portafolios pues ahi se van a ir acomodando, es importante entender el por que
+van a ir variando los tamaños de las alturas de las celdas  cuando ya no estamos considerando
+las celdas que no entran en la grid explícita.
 
 
 
+> `display: inline-grid;` el modelo de grid CSS  se aplica en modo inline
+
+> `display: grid;` es commo la filosofia de display bock bloque(envidioso) se comportan como elementos de bloque genera saltos de linea
+
+
+```css
+  .grid-implicit{
+/*Grid de 4c x 3r*/
+width: 40%;
+
+display: grid; /**/ 
+display: inline-grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(3, 200px);
+
+}
+```
 
 
 
