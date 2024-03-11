@@ -200,9 +200,32 @@ grid-template-rows: repeat(3, 200px);
   grid-auto-columns: 50px;
   /*Cuando estamos en flujo de columna el tamaño lo define la anchura*/
   /*Cuando estamos en flujo de fila quien define el tamaño es la anchura*/
-
 }
 
+.grid-flow-dance{
+  display: grid;
+  /*Grid de 5c x 4r Grid explicita*/
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 200px);
+  /* grid-auto-flow: row dense; */ /*Respeta las columnas va generar filas implisitas*/
+  grid-auto-flow: column dense; /*respeta las filas */ /*PUSE DANSE 🤣🤣🤣*/
+}
+
+/* 
+.grid-flow-dance .item:nth-child(9){
+  color: cyan;
+  grid-row: span 3;
+  grid-column: span 3;
+
+} */
+
+
+.grid-flow-dance .item:nth-child(11){
+  color: cyan;
+  grid-row: span 3;
+  grid-column: span 3;
+
+}
 
 
 

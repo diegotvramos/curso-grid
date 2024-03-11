@@ -365,7 +365,19 @@ la cuadricula explicita que definimos es 5c x 3r y con eso ya tenemos 15 itmes y
 
 ```
 
+## (8/17) Flujo Denso de la Grid (Grid Flow Dense) 
 
+Si yo tubiera el ``grid-auto-flow: column;``  entonces se generaria columnas implicitas, como el flujo por defecto que es ``grid-auto-flow: row;`` en fila vean que como yo a esta grid item 9 le dije que ocupara 3 celdas desde donde estaba pero como el fulo es en fila(por defecto) es que se posicionó hacia abajo, "rigen las reglas el flujo" 
+
+> `grid-auto-flow: row;` tu fila va respetar explicitamente el número de columnas que tu le hayas dado, y si apartir de ahi los elementos no caven va generar dinamicamente lo que se conoce como grid implicita Filas.
+
+>`grid-auto-flow: column;` Respeta el número de filas y dinamicamente va ir generando las columnas dependiedo del número de celdas que tengas
+
+![acomodo](/assets/acomodo%202.JPG)
+
+¿como podria aprovechar esos espacios?
+
+> `grid-auto-flow: row dense;` cuando queden espacio vacios por el acomodo explicito que tu hagas los elementos que estaban inmediatamente despues si tienen el espacio para aprovechar esos huecos lo van hacer
 
 
 
