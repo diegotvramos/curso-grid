@@ -336,6 +336,35 @@ grid-template-rows: repeat(3, 200px);
 }
 ```
 
+## (7/17) Flujo de la Grid (Grid Flow)
+
+Por defecto el comportamiento de grid es generar filas y columnas, pero tambien podemos invertir el flujo.
+
+
+![cuadricula](/assets/cuadricula-explicita.JPG)
+
+la cuadricula explicita que definimos es 5c x 3r y con eso ya tenemos 15 itmes y los demas se van formando por la grid implicita.
+
+```css
+  .grid-flow{
+  display: grid;
+  /*Grid de 5c x 3r*/
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+  grid-auto-flow: column;
+  /* si quiero que toda las filas que se generen implicitamente tengan un valor
+    en especifico 
+  */
+  grid-auto-columns: 50px;
+  /*Cuando estamos en flujo de columna el tamaño lo define la anchura*/
+  /*Cuando estamos en flujo de fila quien define el tamaño es la anchura*/
+}
+
+```
+
 
 
 
