@@ -379,7 +379,59 @@ Si yo tubiera el ``grid-auto-flow: column;``  entonces se generaria columnas imp
 
 > `grid-auto-flow: row dense;` cuando queden espacio vacios por el acomodo explicito que tu hagas los elementos que estaban inmediatamente despues si tienen el espacio para aprovechar esos huecos lo van hacer
 
+![acomodo3](/assets/acomodo3.JPG)
 
+## (9/17) Grid Layers: Celdas en capas (superposición) 
+
+SUPERPONER.
+
+Imaginate que estas diseñando el sitio web de una banda musical que tiene 4 integrantes.
+
+![Superposicion](/assets/Superposicion1.JPG)
+
+el cuadro amarillo es el primer integrante, el azul el segundo integrante el naranja el 3r integrante y el verde es el 4to integrante y el 4 rectangulo morado representa el ultimo albun que sacaron
+
+con cualquier herramienta de diseño (Figma, Adobexd, SQUETCH, photoshop, excel )
+
+```css
+  .grid-layers{
+  display: grid;  /*Grid de 5c x 3r*/
+  /*Grid de 4c x 4r*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-layers .item:nth-child(1){
+  background-color: #dbea33;
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+.grid-layers .item:nth-child(2){
+  background-color: #497af8;
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+.grid-layers .item:nth-child(3){
+  background-color: #90e971;
+  grid-column: 1/3;
+  grid-row: 3/5;
+}
+.grid-layers .item:nth-child(4){
+  background-color: #f0952a;
+  grid-column: 3/5;
+  grid-row: 3/5;
+}
+
+.grid-layers .item:nth-child(5){
+  background-color: #c92af0;
+  opacity: 75%;
+  grid-column: 2/4;
+  grid-row: 2/4;
+}
+```
+
+grid nos permite superponerlos de esa manera
 
 
 
