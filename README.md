@@ -467,17 +467,133 @@ le damos medidas exactas a los items para apreciar la alineacion y vean que sobr
 ![start](/assets/alineamiento-start.JPG)
 
 > `justify-items:center;`Los items se empaquetan al ras entre sí hacia el centro del contenedor de alineación(estan centradas respecto de su track de columna).
+![items-center](/assets/alineamiento-center.JPG)
 
 > `justify-items:end;` El item se empaqueta al ras entre sí hacia el borde final del contenedor de alineación en el eje correspondiente.
 
 
 *ALINEACION RESPECTO DE EL EJE "Y"*
 
+https://developer.mozilla.org/en-US/docs/Web/CSS/align-items 
+
 > `align-items: stretch;` es el valor por defecto
 
-> `align-items: start;`Usado solo en diseño flexible, alinea los elementos flexibles al ras con el lado de inicio principal o de inicio cruzado del contenedor flexible
+> `align-items: start;`Usado solo en diseño flexible, alinea los elementos flexibles al ras con el lado de inicio principal o de inicio cruzado del contenedor flexible (respuecto del eje Y las celdas se van alineando arriba **Solo ocupa el espacio de su contenido** ¿sabes que es el contenido?si, es Grid Item 3333"y su respectivo padding) respecto de Y  está arriba. 
+
+![align-start](/assets/alineacion-start.JPG)
+
+> `align-items: center;`Los cuadros de margen de los elementos flexibles están centrados dentro de la línea del eje transversal. Si el tamaño transversal de un artículo es mayor que el contenedor flexible, se desbordará igualmente en ambas direcciones.
+
+![align-center](/assets/alineacion-center.JPG)
+
+> `align-items: end;`
+
+¿como alineo un sol elemento?
+
+`justify-self: start; align-self: start;`
+
+![align-self](/assets/align-self.JPG)
+
+```css
+  .grid-align{
+  display: grid;
+  /*Grid de 3c x 2r*/
+  grid-template-columns: repeat(3, 200px); /*le damos medidas exactas para ver la alineacion*/
+  grid-template-rows: repeat(2, 200px);
+
+  /*Justify-items alinea mis elementos grid en el eje horizontal (x)*/
+  justify-items: stretch; /*(toma los valores que le hayamos dado a la grid)*/
+  justify-items: start;
+  justify-items: center;
+  justify-items: end;
+  justify-items: center;
+  /*align-items alinea mis elementos grid en el eje vertical (y)*/
+  align-items: stretch; /*valor por defecto*/
+  align-items: start;
+  align-items: center;
+  align-items: end;
+  align-items: center;
+}
+
+/*Cuando quieran alinear un solo ITEM*/
+
+.grid-align .item:nth-child(4){
+  justify-self: start;
+  align-self: start;
+}
+```
+
+## (11/17) Alineación de Grid Tracks 
+
+¿Que son las Grid Tracks?
+son toda las filas o toda las columnas, 
+
+![justify-content](/assets/justify-content-center.JPG)
 
 
+> `justify-content: space-between;` reparte el espacio sobrante entre los tracks
+
+![space-between](/assets/justify-content-space-between.JPG)
+
+
+> `justify-content: space-around;` reparte el espacio proporcional entre los elementos pero tambien consideera las orillas el tamaño de las orillas es la mitad
+
+![space-around](/assets/space-around.JPG)
+
+> `space-evenly` si quieres que el mismo espacio tanto en las orillas como en los elementos internos
+
+![space-evenly](/assets/space-evenly.JPG)
+
+_Align-content alinea los tracks de la grid en e eje vertical (y)_
+
+> `align-content: center;`
+
+![align-content-center](/assets/align-content-center.JPG)
+
+
+> `align-content: end;`
+
+![align-content-end](/assets/align-content-end.JPG)
+
+
+
+> `align-content: space-between;`
+
+
+![align-content-space-between;](/assets/align-content-space-between.JPG)
+
+> `align-content: space-evenly;`
+
+![align-content-space-evenly](/assets/align-content-space-evenly.JPG)
+
+
+
+```css
+  .grid-align-tracks{
+  display: grid;
+  /*Grid de 3c x 2r*/
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+  /*justify-content: start; aliea los traks (las columnas y las filas) en el eje horizontal*/
+  justify-content: start;
+  justify-content: end;
+  justify-content: center;
+  /**/
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  /*Align-content alinea los tracks de la grid en e eje vertical (y)*/
+
+  
+  align-content: start; /*por defecto*/
+  align-content: center;
+  align-content: end;
+  align-content: space-between;/*no cuenta las orillas*/
+  align-content: space-around;/*el espaciado de las orillas seria la mitad de los interiores*/
+  align-content: space-evenly;/*si quiero el mismo tamaño en las orillas buena opcion*/
+}
+```
+> estas ultimas propiedades son muy parecidas a flex box
 
 
 

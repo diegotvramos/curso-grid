@@ -293,12 +293,48 @@ grid-template-rows: repeat(3, 200px);
   /*Grid de 3c x 2r*/
   grid-template-columns: repeat(3, 200px); /*le damos medidas exactas para ver la alineacion*/
   grid-template-rows: repeat(2, 200px);
+
+  /*Justify-items alinea mis elementos grid en el eje horizontal (x)*/
   justify-items: stretch; /*(toma los valores que le hayamos dado a la grid)*/
   justify-items: start;
   justify-items: center;
   justify-items: end;
-  /**/
+  justify-items: center;
+  /*align-items alinea mis elementos grid en el eje vertical (y)*/
   align-items: stretch; /*valor por defecto*/
+  align-items: start;
+  align-items: center;
+  align-items: end;
+  align-items: center;
+}
 
+/*Cuando quieran alinear un solo ITEM*/
 
+.grid-align .item:nth-child(4){
+  justify-self: start;
+  align-self: start;
+}
+
+.grid-align-tracks{
+  display: grid;
+  /*Grid de 3c x 2r*/
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+  /*justify-content: start; aliea los traks (las columnas y las filas) en el eje horizontal*/
+  justify-content: start;
+  justify-content: end;
+  justify-content: center;
+  /**/
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  /*Align-content alinea los tracks de la grid en e eje vertical (y)*/
+
+  
+  align-content: start; /*por defecto*/
+  align-content: center;
+  align-content: end;
+  align-content: space-between;/*no cuenta las orillas*/
+  align-content: space-around;/*el espaciado de las orillas seria la mitad de los interiores*/
+  align-content: space-evenly;/*si quiero el mismo tamaño en las orillas buena opcion*/
 }
