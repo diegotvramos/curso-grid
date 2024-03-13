@@ -434,6 +434,50 @@ con cualquier herramienta de diseño (Figma, Adobexd, SQUETCH, photoshop, excel 
 grid nos permite superponerlos de esa manera
 
 
+## (10/17) Orden y Alineación de Grid Items 
+
+¿Como cambiamos el orden en el que va apareciendo los elementos?
+
+como en flexbox el valor por defecto que tienen al inicio es 0 y como en fexbox puede aceptar números positivos o números negativos (-1 0 1) mientras más pequeño sea el número va estar al inicio mientras mas grande sea el número más hacia atras va estar.
+
+> `order: 0;`
+
+> _Este orden aplica cuando hacemos que los elementos se vayan acomodando en base al flujo natural de la grid, siempre y cuando no cambies el flujo explicitamente(nombres de areas con nombres de linea o con números de lineas) ahi la propiedad ORDER no aplica_
+
+> _Este orden aplica cuando hacemos que los elementos se vayan acomodando en base al flujo natural de la grid, cuando posicionamos explicitamente ya sea con nombres de areas con nombres de linea o con números de lineas ahi la propiedad ORDER no aplica_
+
+
+> _De igual manera si cambias `grid-auto-flow:column;`pues mira que el ordenamiento funciona exactamente igual nomas que ahora funciona en **columna** ya que el flujo va en columna_ 
+
+**¿Como alinear Items?**
+
+le damos medidas exactas a los items para apreciar la alineacion y vean que sobra bastante espacio del contenedor que es el grid. 
+
+
+*ALINEACION RESPECTO DE EL EJE X*
+
+> `justify-items:stretch;` items hace referencia a los hijos, y strech es el valor por defecto *stretch* **significa que ocupe todo el espacio**
+
+> `justify-items:;` me permite alinear las celdas de la grid en el eje X
+
+> `justify-items:start;` El item se embala al ras del borde del contenedor de alineación del lado inicial del item, en el eje correspondiente(Se refiere al eje X).
+
+> a lo ancho como puedes ver está ocupando el "Grid Item 3333" y el padding correspondiente que tiene cada lado.
+
+![start](/assets/alineamiento-start.JPG)
+
+> `justify-items:center;`Los items se empaquetan al ras entre sí hacia el centro del contenedor de alineación(estan centradas respecto de su track de columna).
+
+> `justify-items:end;` El item se empaqueta al ras entre sí hacia el borde final del contenedor de alineación en el eje correspondiente.
+
+
+*ALINEACION RESPECTO DE EL EJE "Y"*
+
+> `align-items: stretch;` es el valor por defecto
+
+> `align-items: start;`Usado solo en diseño flexible, alinea los elementos flexibles al ras con el lado de inicio principal o de inicio cruzado del contenedor flexible
+
+
 
 
 

@@ -265,7 +265,40 @@ grid-template-rows: repeat(3, 200px);
   grid-row: 2/4;
 }
 
+/*Ordenamiento de Grid Items*/
+
+.grid-order{
+  display: grid;
+  /*Grid de 3c x 2r*/
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column; 
+}
+
+.grid-order .item:nth-child(1){
+  color: cyan;
+  order: 1;
+}
+
+.grid-order .item:nth-child(2){
+  order: 2;
+}
+
+.grid-order .item:nth-child(5){
+  order: -1;
+}
+
+.grid-align{
+  display: grid;
+  /*Grid de 3c x 2r*/
+  grid-template-columns: repeat(3, 200px); /*le damos medidas exactas para ver la alineacion*/
+  grid-template-rows: repeat(2, 200px);
+  justify-items: stretch; /*(toma los valores que le hayamos dado a la grid)*/
+  justify-items: start;
+  justify-items: center;
+  justify-items: end;
+  /**/
+  align-items: stretch; /*valor por defecto*/
 
 
-
-
+}
