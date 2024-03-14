@@ -639,12 +639,31 @@ Hay 2 valores que le podemos asignar a esta función:
 }
 ```
 
+ya es responsivo sin la necesidad de usar media querys.
+
 dependiendo del contenido que cada columna va tener podemos tener diferentes resultados
 
+## (13/17) Grids con Patrones Repetitivos 
 
+Vamos a seguir utilizando la funcion `repeat(,)` {esta funcion sirven a `grid-template-columns:` `grid-template-rows`:}
 
+Podemos generar patrones que nos permita automatizar el número de elementos
 
+![patrones](/assets/patrones.JPG)
 
+```css
+  .grid-repeat{
+  display: grid;
+  /*Grid de 4c x xr*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 10% 20% 30% 40%); /*REPITE 4 VECES EL PATRON (10% 20% 30% 40%)*/
+  grid-template-columns: repeat(1, 10% 20% 30% 40%);/*solucion*/
+  grid-template-rows: repeat(2, 10vh 20vh);
+  grid-template-rows: repeat(2, 100px 200px); /*solo 2 veces se va repetir, despues las filas son implicítas*/
+  grid-auto-rows: 150px; /*las filas generadas implicitamente van a tener esta medida*/ 
+}
+```
+este tipo de patrones repetitivos nos puede servir para ir generando secuencias para generar los tamaños tanto de las filas como de las columnas
 
 
 
