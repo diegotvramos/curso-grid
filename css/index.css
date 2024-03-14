@@ -338,3 +338,17 @@ grid-template-rows: repeat(3, 200px);
   align-content: space-around;/*el espaciado de las orillas seria la mitad de los interiores*/
   align-content: space-evenly;/*si quiero el mismo tamaño en las orillas buena opcion*/
 }
+
+/**/
+
+.grid-min-max{
+  display: grid;
+  /*Grid de 4c x xr*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(100px, 200px));
+  grid-template-columns: repeat(4, minmax(min-content, 200px));
+  grid-template-columns: repeat(4, minmax(100px, min-content));
+  grid-template-columns: repeat(4, minmax(100px, max-content));
+  grid-template-columns: repeat(4, minmax(max-content, 200px));
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+}

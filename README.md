@@ -595,6 +595,55 @@ _Align-content alinea los tracks de la grid en e eje vertical (y)_
 ```
 > estas ultimas propiedades son muy parecidas a flex box
 
+## (12/17) Tamaños Máximos y Mínimos de Grid Tracks
+
+> Recuerda: un Track es fila o columna.
+
+> Observacion: al reducir o estirar la grid lo hace proporcionalmente.
+
+> La función min-max lo podemos ejecutar cuando vamos a declarar el tamaño ya sea de columna o fila de un elemento.
+
+> `grid-template-columns: repeat(4, minmax(100px, 200px));`
+
+cualquier unidad de medida son validas, observa: 
+
+![minmax](/assets/minmax.JPG)
+
+si achicamos mucho el navegador podemos observar que desborda por que la anchura minima fue 100px.
+
+Hay 2 valores que le podemos asignar a esta función:
+
+> `grid-template-columns: repeat(4, minmax(min-content, 200px));` El minimo contenido que tenga la columna. {definida por la palabra mas larga esto tambien va afectar a las columnas de abajo o arriba.}
+
+![min-content](/assets/min-content.JPG)
+
+![min-content2](/assets/min-content2.JPG)
+
+
+
+> `grid-template-columns: repeat(4, minmax(100px, max-content));` El maximo contenido que tenga la columna. {eso incluye espacios comas, etc.}
+
+![max-content](/assets/max-content.JPG)
+
+```css
+  .grid-min-max{
+  display: grid;
+  /*Grid de 4c x xr*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(100px, 200px));
+  grid-template-columns: repeat(4, minmax(min-content, 200px));
+  grid-template-columns: repeat(4, minmax(100px, min-content));
+  grid-template-columns: repeat(4, minmax(100px, max-content));
+  grid-template-columns: repeat(4, minmax(max-content, 200px));
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+}
+```
+
+dependiendo del contenido que cada columna va tener podemos tener diferentes resultados
+
+
+
+
 
 
 
