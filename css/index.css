@@ -381,6 +381,8 @@ grid-template-rows: repeat(3, 200px);
 
 .grid-responsive{
   display: grid;
-  /*el tamaño minimo depende de */
-  grid-template-columns: repeat(auto-fit, minmax);
+  /*el tamaño minimo que su elemento tenga , por eje. si estamos hablando que la resolucion mínima
+  de un dispositivo mobil es de 320px yo podria tomarlos como medida miníma y restando margenes*/
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));/*1fr: espacio disponible*/
+  /*gap: 1vw; /*separacion*/
 }

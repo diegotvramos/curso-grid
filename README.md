@@ -689,6 +689,34 @@ lo que estoy haciendo es dejar mucho espacio sobrante sobre el contenedor que es
 
 > `grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));` esto es muy similar a lo que hace la propiedad (flexbox)flex-grou (factor de crecimiento) y la propiedad flex-sgrin (factor de reduccion), con esta linea podemos hacer una grid responsiva sin la necesidad de media querys
 
+> `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));` me permite tener una grid responsiva como la que podemos generar con las clases de bootstrap, fundation ( sm, xl, lg, md)
+
+
+```css
+  .grid-dynamics{
+  display: grid;
+  /*Grid de 4c x xr*/
+  grid-template-columns: repeat(4, 100px);
+  /*auto-fill Rellena la grid con tracks generados dinámicamente*/
+  grid-template-columns: repeat(auto-fill, 100px);
+  /*auto-fit Ajusta la grid con los tracks(puede ser fila o columna) existentes*/
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+
+.grid-responsive{
+  display: grid;
+  /*el tamaño minimo que su elemento tenga , por eje. si estamos hablando que la resolucion mínima
+  de un dispositivo mobil es de 320px yo podria tomarlos como medida miníma y restando margenes*/
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));/*1fr: espacio disponible*/
+  /*gap: 1vw; /*separacion*/
+}
+```
+
+## 
+
 
 
 
