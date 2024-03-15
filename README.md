@@ -666,6 +666,31 @@ Podemos generar patrones que nos permita automatizar el número de elementos
 este tipo de patrones repetitivos nos puede servir para ir generando secuencias para generar los tamaños tanto de las filas como de las columnas
 
 
+## (14/17) Grids Dinámicas. Responsive sin Media Queries 
+
+son valores/constantes estáticas.
+
+> `auto-fill` se va repetir en base al número de lementos que tengas, y cuando se acaben tus elementos va seguir generando columnas dinamicas(traks) 
+
+![autofill](/assets/autofill.JPG)
+
+se está rellenando dinámicamente con el número de tracks de 100px que quepan dentro del contenedor grid, esto nos ayuda por ejemplo cuando tengamos una aplicacion que genere grids dinámicas eje: (grid de un perfil de instagram) cuando llego al final del scroll se van a ir generando mas elementos items dependiendo del número de publicaciones de la cuenta que estoy visualizando, esto de autofil y autofit tambien nos va ayudar en ese tipo de aplicaciones donde el número de elementos pues va depender dinamicamente de la api, de la base de datos de la aplicacion que estemos trabajando, entonces grid CSS se adapta a ese tipo de dinamismo.
+
+> `autofit` ajustate a los elementos que tienes disponibles
+
+![auto-fit](/assets/auto-fit.JPG)
+
+una de las características que tienen estos valores constantes es que hay una tecnica para hacer responsive design sin la necesidad de meter media querys
+
+![espacio-sobrante](/assets/espacio-sobrante.JPG)
+
+lo que estoy haciendo es dejar mucho espacio sobrante sobre el contenedor que es el grid.
+
+
+> `grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));` esto es muy similar a lo que hace la propiedad (flexbox)flex-grou (factor de crecimiento) y la propiedad flex-sgrin (factor de reduccion), con esta linea podemos hacer una grid responsiva sin la necesidad de media querys
+
+
+
 
 
 
