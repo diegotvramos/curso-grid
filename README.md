@@ -818,7 +818,111 @@ maquetacion para pc-escritorio.
 si tu tubieras la necesidad de tener varias media queris lo único que van a tener que hacer es que al cambio de las media querys el contenedor que sea el grid padre pues lo vas a tener que reedefinir en base a sus necesidades el número de filas y posteriormente cambir el acomo de las grids
 
 
+## (17/17) Responsive Layout con Grid Areas
 
+cuando tu ves asi definidos con palabras semánticas que hagan referencia al contenido de esa región es como hasta mas facil identificar esta maquetacion
+
+
+```css
+  html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+
+  body{
+    margin: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+    "header     header      header      header      header      header"
+    "nav        nav         nav         nav         nav         nav"
+    "uc-left    uc-left     uc-center   uc-center   uc-right    uc-right"
+    "middle     middle      middle      lower       lower       lower"
+    "footer     footer      footer      footer      footer      footer"
+    ;
+  }
+
+  /*todo los elementos hijos directos*/
+
+body > * {
+    background-color: #666;
+    border: medium solid #222;
+}
+
+h2{
+    text-align: center;
+    color: beige;
+}
+
+.footer a{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    grid-area: header;
+}
+
+.nav{
+    grid-area: nav;
+}
+
+.uc-left{
+    grid-area: uc-left;
+}
+.uc-center{
+    grid-area: uc-center;
+}
+.uc-right{
+    grid-area: uc-right;
+}
+
+.middle{
+    grid-area: middle;
+}
+
+
+.lower{
+    grid-area: lower;
+}
+
+
+.footer{
+    grid-area: footer;
+}
+
+/*Esta maquetacion está pensada en mobile first */
+
+@media screen and (min-width: 1024px){
+    body{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+        "header     header      header      header      header"
+        "nav        uc-left     uc-center   uc-center   uc-right"
+        "nav        middle      middle      middle      middle"
+        "nav        lower       lower       lower       lower"
+        "footer     footer      footer      footer      footer "
+        ;
+    }
+    h2{
+        color: aqua;
+    }
+}
+```
+
+
+con grid podemos hacer una interfaz tipo: portafolio, dashboard
 
 
 
