@@ -715,10 +715,76 @@ lo que estoy haciendo es dejar mucho espacio sobrante sobre el contenedor que es
 }
 ```
 
-## 
+> _solo una cosa como puedo limitar el numero de columnas por que se va adaptando al espacio sobrante, tal vez debo ponerle un max de un tamaño fijo._ 
+
+##  (15/17) Grids Anidadas & Subgrids
+
+**Grid Anidada**
+
+> quiero que te des de cuenta que un elemento puede ser un hijo de un elemento superior pero a su ves puede ser un grid container de sus hijos
+
+> _Un elmento puede ser un hijo grid de un elemento superior y a su ves ser un grid container de sus hijos_
+
+![grid-anidado](/assets/grid-anidado.JPG)
+
+> Son 2 grids independientes.
+
+```css
+  .grid-nested{
+  display: grid;
+  /*Grid de 3c x xr*/
+  grid-template-columns: repeat(3, 1fr);
+}
+
+```
+
+**Sub-grid** 
+no está soportado en todo los navegadores: 
+
+![subgrid](/assets/subgrid.JPG)
+
+> vamos a hacer que el article  grid subitem1 herede mediante subgrid la  retícula del padre, entonces se puedan alinear los nietos del section container a la misma grid,  sin la necesidad de generar 2
+
+> hay una serie de pasos que hay que cumplir para que el `subgrid` se cumpla:
+
+1. _Definir explícitamente el tamaño que ocupará el elemento que aplicará subgrid dentro del contenedor padre grid, es decir definir sus propiedades grid-column y grid-row_ 
+
+2. _Aplicar display grid al elemento que aplicará subgrid_
+
+3. _Aplicar el valor de subgrid a las columnas, a las filas o ambas depende de como se quiera_
+
+```css
+  .grid{
+  display: grid;
+  /*Grid de 3c x 4r*/
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.subgrid{
+  /*hay varias tecnicas para posicionar explicitamente un elemento*/
+  grid-column: span 3;
+  grid-row: 1/3; /*ocupa todo el contenedor padre 3*2= 6*/
+  display: grid;
+  /*yo quiero que los nietos se adiheran exactamente a la reticula del abuelo yo voy a definir
+  tanto las columnas y columnas con el valor de subgrid
+  */
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+
+}
+```
 
 
+![subgrid2](/assets/subgrid2.JPG)
 
+¿Donde podemos aplicar la subgrid? , imagínate una maquetación muy compleja, sitio web informativo, tipo portal informativo, periodico
+
+en un futuro nos va ayudar a manejar la herencia de la grid del sitio web general
+
+grid: serviria para definir la IU general de nuestras propuestas de maquetacion
+
+flexbox: se encargaria de alinear los elementos de los componentes internos
 
 
 
