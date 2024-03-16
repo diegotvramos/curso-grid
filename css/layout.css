@@ -1,0 +1,125 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+
+  body{
+    margin: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, auto);
+  }
+
+  /*todo los elementos hijos directos*/
+
+body > * {
+    background-color: #666;
+    border: medium solid #222;
+}
+
+h2{
+    text-align: center;
+    color: beige;
+}
+
+.header{
+    grid-column: span 6;
+    grid-row: span 1;
+}
+
+.nav{
+    grid-column: span 6;
+    grid-row: span 1;
+}
+
+.uc-left{
+    grid-column: span 2;/*desde donde estas desplazate 2 columnas*/ 
+    grid-row: span 1;/* y ocupa una fila*/
+}
+.uc-center{
+    grid-column: span 2; 
+    grid-row: span 1;
+}
+.uc-right{
+    grid-column: span 2; 
+    grid-row: span 1;
+}
+
+.middle{
+    grid-column: span 3; 
+    grid-row: span 1;
+}
+
+
+.lower{
+    grid-column: span 3; 
+    grid-row: span 1;
+}
+
+
+.footer{
+    grid-column: span 6;
+    grid-row: 5 / 6; /*va de la fila 5 a la 6*/
+    grid-row: span 1;
+}
+
+/*Esta maquetacion está pensada en mobile first */
+
+@media screen and (min-width: 1024px){
+    body{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, auto);
+    }
+    h2{
+        color: aqua;
+    }
+    .header{
+        grid-column: span 5;
+        grid-row: span 1;
+    }
+    
+    .nav{
+        grid-column: 1 / 2;
+        grid-row: 2 / 5;
+    }
+    
+    .uc-left{
+        grid-column: 2 / 3; /*de la linea...*/ 
+        grid-row: 2 / 3;/* y ocupa una fila*/
+    }
+    .uc-center{
+        grid-column: 3 / 5; 
+        grid-row: 2 / 3;
+    }
+    .uc-right{
+        grid-column: 5 / 6; 
+        grid-row: 2 / 3;
+    }
+    
+    .middle{
+        grid-column: 2 / 6; 
+        grid-row: 3 / 4; /*va de la linea 3 a la 4*/
+    }
+    
+    
+    .lower{
+        grid-column: 2 / 6; 
+        grid-row: 4 / 5;
+    }
+    
+    
+    .footer{
+        grid-column: 1 / 6;
+        grid-row: 5 / 6; /*va de la fila 5 a la 6*/
+        grid-row: span 1;
+    }
+}

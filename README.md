@@ -739,7 +739,7 @@ lo que estoy haciendo es dejar mucho espacio sobrante sobre el contenedor que es
 ```
 
 **Sub-grid** 
-no está soportado en todo los navegadores: 
+no está soportado en todo los navegadores:  https://caniuse.com/?search=subgrid
 
 ![subgrid](/assets/subgrid.JPG)
 
@@ -787,9 +787,35 @@ grid: serviria para definir la IU general de nuestras propuestas de maquetacion
 flexbox: se encargaria de alinear los elementos de los componentes internos
 
 
+## (16/17) Responsive Layout con Grid Lines
+
+_propuesta para pc escritorio_
+
+![holi](/assets/holy-grail-layout.jpg)
+
+_Propuesta para dispositivo mobil_
+
+![holi](/assets/para-mobile.JPG)
+
+vamos a definir la maquetacion con grid css con esta propuesta de layout
+
+primero definimos el marcado html
+
+* ¿Quien va ser mi contenedor grid? pues el body
+
+* ¿Cuantas filas y cuantas columnas requerimos?
 
 
+maquetacion para mobile-first
 
+![mobile](/assets/para-mobile.JPG)
+
+
+maquetacion para pc-escritorio.
+
+![pc-escritorio](/assets/maquetacion-escritorio.JPG)
+
+si tu tubieras la necesidad de tener varias media queris lo único que van a tener que hacer es que al cambio de las media querys el contenedor que sea el grid padre pues lo vas a tener que reedefinir en base a sus necesidades el número de filas y posteriormente cambir el acomo de las grids
 
 
 
