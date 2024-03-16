@@ -2,6 +2,8 @@
 
 # CURSO GRID CSS
 
+[link](https://diegotvramos.github.io/curso-grid/)
+
 ## (1/17) Introducción y Conceptos Básicos
 
 Grid CSS es la segunda herramienta  que tenemos para maquetar realmente, es el segundo sistema que nos ofrece el estandar CSS  para poder maquetar interfaces web, Flexbox css fue el primer sitema real de maquetacion que tuvimos en css toda las tecnicas que usabamos antes los diseñadores web como las tablas los marcos los floats  eran cosas que nosotros usabamos de css como para poder hacer una reticula y poder ir maquetando el contenido pero no es hasta flexbox css por alla del año 2014 2015  que se empesó a implementar en los navegadores entonces ya teniamos un primer sitema real de maquetacion en css ahora el detalle de flexbox es que es un sistema unidimencional, es decir si podemos tener filas y columnas pero no al mismo tiempo o tienes filas o tienes columnas.
